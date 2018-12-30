@@ -1,0 +1,20 @@
+{
+  "name": "framework-php",
+  "authors": [
+    "Erick Benites Cuenca <erick.benites@gmail.com>"
+  ],
+  "description": "Framework MVC con PHP",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.2.1"
+  }
+}

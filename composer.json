@@ -1,0 +1,32 @@
+{
+    "name": "ebenites/framework-php",
+    "description": "Framework MVC con PHP",
+    "type": "project",
+    "require": {
+        "kint-php/kint": "^3.1",
+        "php-di/php-di": "^6.0",
+        "nikic/fast-route": "^1.3",
+        "twig/twig": "^2.6",
+        "robmorgan/phinx": "^0.10.6",
+        "fzaninotto/faker": "^1.8",
+        "doctrine/orm": "^2.6",
+        "symfony/validator": "^4.2",
+        "respect/validation": "^1.1",
+        "aura/session": "^2.1",
+        "jasongrimes/paginator": "^1.0"
+    },
+    "authors": [
+        {
+            "name": "Erick Benites Cuenca",
+            "email": "erick.benites@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Application\\": "app/"
+        },
+        "files": [
+            "app/helpers.php"
+        ]
+    }
+}

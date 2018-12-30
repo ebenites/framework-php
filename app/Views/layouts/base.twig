@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Framework PHP{% if page_title is defined %} | {{ page_title }}{% endif %}</title>
+        <meta name="robots" content="{% if page_meta_robots is defined %} | {{ page_meta_robots }}{% endif %}" />
+        <meta name="description" content="{% if page_meta_description is defined %}{{ page_meta_description }}{% endif %}" />
+
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ url('/components/bootstrap/dist/css/bootstrap.min.css') | raw }}">
+        {% endblock %}
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        {% if session.app.user is defined %}
+                            <li class="{{ ('first_uri_segment') == 'profile' ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ url('profile') }}">Perfil</a>
+                            </li>
+                            <li class="{{ ('first_uri_segment') == 'blog' ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ url('blog') }}">Blog</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="{{ url('logout') }}">Cerrar sesión</a>
+                            </li>
+                        {% else %}
+                            <li class="{{ ('first_uri_segment') == 'login' ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ url('login') }}">Iniciar sesión</a>
+                            </li>
+                            <li class="{{ ('first_uri_segment') == 'register' ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ url('register') }}">Registrarme</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
+
+        <footer class="bg-light mt-3">
+            <div class="container text-center p-3">
+                <span class="text-muted">Tecsup &copy; todos los derechos reservados</span>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+{% extends "layouts/base.twig" %}
+
+{% block body %}
+
+    <div class="row mt-3">
+        <div class="col-md-8 offset-md-2">
+
+            <div class="card">
+
+                <div class="card-header">
+                    Bienvenido {{ session.app.user.id }} - {{ session.app.user.email }}
+                </div>
+    
+                <div class="card-body">
+                    <p>Tu nombre en bd es {{ session.app.user.name }}</p>
+                </div>
+            
+            </div>
+            
+        </div>
+    </div>
+{% endblock %}

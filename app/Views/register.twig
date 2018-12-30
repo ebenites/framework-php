@@ -1,0 +1,43 @@
+{% extends "layouts/base.twig" %}
+
+{% set page_title = "Registro" %}
+{% set page_meta_description = "Regístrate ahora, es gratis!" %}
+{% set page_meta_robots = "index, follow" %}
+
+{% block body %}
+    <div class="row mt-3">
+        <div class="col-md-8 offset-md-2">
+
+            <div class="card">
+
+                <div class="card-header">
+                    Registro de usuarios
+                </div>
+    
+                <div class="card-body">
+    
+                    {{ flash('danger') }}
+    
+                    <form action="{{ url('register') }}" method="POST" novalidate>
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ post.name }}" autocomplete="off" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" value="{{ post.email }}" autocomplete="off" />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" />
+                        </div>
+    
+                        <button type="submit" class="btn btn-primary">Registrarme</button>
+                    </form>
+                </div>
+            
+            </div>
+            
+        </div>
+    </div>
+{% endblock %}

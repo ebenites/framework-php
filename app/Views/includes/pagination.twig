@@ -1,0 +1,19 @@
+<ul class="pagination">
+    {% if paginator.getPrevUrl %}
+        <li class="page-item"><a class="page-link" href="{{ paginator.getPrevUrl() }}">&laquo; Anterior</a></li>
+    {% endif %}
+
+    {% for page in paginator.getPages %}
+        {% if page.url %}
+            <li class="{{ page.isCurrent ? 'page-item active' : 'page-item' }}">
+                <a class="page-link" href="{{ page.url }}">{{ page.num }}</a>
+            </li>
+        {% else %}
+            <li class="page-item"><span>{{ page.num }}</span></li>
+        {% endif %}
+    {% endfor %}
+
+    {% if paginator.getNextUrl %}
+        <li><a class="page-link" href="{{ paginator.getNextUrl() }}">&raquo; Siguiente</a></li>
+    {% endif %}
+</ul>

@@ -1,0 +1,24 @@
+{% extends "layouts/base.twig" %}
+
+{% set page_title = "Listado de posts del blog" %}
+{% set page_meta_description = "Posts del blog para revisar y coger ideas" %}
+{% set page_meta_robots = "index, follow" %}
+
+{% block body %}
+    <div class="row mt-3">
+        {% for post in posts %}
+            <div class="col-12">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        {{ post.id }} - {{ post.title }}
+                    </div>
+                    <div class="card-body">
+                        {{ post.body }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+        {% include('includes/pagination.twig') %}
+    </div>
+{% endblock %}
